@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm trung bình của sinh viên</title>
+</head>
+<body>
+<script>
+    let inputVatLy = prompt("Nhập điểm cho môn vật lý");
+    let inputHoaHoc = prompt("Nhập điểm cho môn hóa học");
+    let inputSinhHoc = prompt("Nhập điểm cho môn sinh học");
+    let vatLy = parseInt(inputVatLy);
+    let hoaHoc = parseInt(inputHoaHoc);
+    let sinhHoc = parseInt(inputSinhHoc);
+    let avg = (vatLy + hoaHoc + sinhHoc) / 3;
+    document.write("Điểm trung bình của sinh viên là: " + avg);
+</script>
+</body>
+</html>
