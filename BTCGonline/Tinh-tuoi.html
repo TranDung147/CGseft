@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính độ tuổi</title>
+</head>
+<body>
+<script>
+  let namSinh = prompt("Nhập vào năm sinh: ");
+  let curDate = new Date().getFullYear();
+  namSinh = curDate - namSinh;
+  if (namSinh > 18){
+    document.write("Đã đủ tuổi");
+  } else {
+    document.write("Chưa đủ tuổi");
+  }
+</script>
+</body>
+</html>
