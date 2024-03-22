@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check_prime</title>
+</head>
+<body>
+<script>
+    let count = 0;
+    let j = 2
+    while (count < 20){
+        let n = j;
+        let check = true;
+        for (let i = 2; i < n; i++) {
+            if (n% i === 0) {
+                check = false;
+                break;
+            }
+        }
+        if (check){
+            count++;
+            document.write(j + " ");
+        }
+        j++;
+    }
+
+</script>
+</body>
+</html>
