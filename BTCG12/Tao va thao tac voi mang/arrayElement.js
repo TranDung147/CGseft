@@ -12,4 +12,5 @@ function display_array() {
         e += "Element " + i + " = " + array[i] + "<br/>";
     }
     document.getElementById("result").innerHTML = e;
+    
 }
