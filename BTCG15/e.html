@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <p>
+        <label>Fahrenheit</label>
+        <input
+                id="inputFahrenheit"
+                type="number"
+                placeholder="Fahrenheit"
+                oninput="temperatureConverter(this.value, 'fahrenheit')"
+                onchange="temperatureConverter(this.value, 'fahrenheit')"
+        />
+        <input
+                id="inputCelsius"
+                type="number"
+                placeholder="Celsius"
+                oninput="temperatureConverter(this.value, 'celsius')"
+                onchange="temperatureConverter(this.value, 'celsius')"
+        />
+    </p>
+    <p>Celsius: <span id="outputCelsius"></span></p>
+    <p>Fahrenheit: <span id="outputFahrenheit"></span></p>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>
