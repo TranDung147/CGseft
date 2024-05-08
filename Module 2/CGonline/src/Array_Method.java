@@ -8,10 +8,10 @@ public class Array_Method {
         array[2] = 3;
         array[3] = 4;
         array[4] = 5;
-        removeItem(1,3, array);
-        removeItemByIndex(3, array);
-        addItem(6, array);
-        findIdexByValue(3,array);
+        //removeItem(1,3, array);
+        //removeItemByIndex(3, array);
+        //addItem(6, array);
+        System.out.print("index is: " + findIdexByValue(3,array));
 
     }
     static int[] removeItem(int a, int b, int[] arrayRemove) {
@@ -62,7 +62,7 @@ public class Array_Method {
     static int findIdexByValue(int value, int[] array){
         for (int i = 0; i < array.length; i++) {
             if (array[i] == value){
-                System.out.println(i);
+                return i;
             }
         }
         return -1;
