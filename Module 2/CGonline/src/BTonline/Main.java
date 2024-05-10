@@ -19,7 +19,7 @@ public class Main {
                 System.out.println(student.getInfo());
             }
         }
-        System.out.println("==============");
+        System.out.println("Cac hoc sinh co GPA > 8 la: ");
         for (Student student : students) {
             if (student.getGPA() > 8.0) {
                 System.out.println(student.getInfo());

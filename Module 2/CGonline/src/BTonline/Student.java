@@ -46,6 +46,6 @@ public class Student {
     }
 
     public String getInfo(){
-        return "Name: " + name + "\nID: " + id + "\nEmail: " + email + "\nGPA: " + GPA;
+        return "Name: " + name + ", ID: " + id + ", Email: " + email + ", GPA: " + GPA;
     }
 }
