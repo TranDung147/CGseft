@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CGonline.iml" filepath="$PROJECT_DIR$/CGonline.iml" />
       <module fileurl="file://$PROJECT_DIR$/DemoStatic/DemoStatic.iml" filepath="$PROJECT_DIR$/DemoStatic/DemoStatic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ke_thua/Ke_thua.iml" filepath="$PROJECT_DIR$/Ke_thua/Ke_thua.iml" />
       <module fileurl="file://$PROJECT_DIR$/demoBT/demoBT.iml" filepath="$PROJECT_DIR$/demoBT/demoBT.iml" />
     </modules>
   </component>
