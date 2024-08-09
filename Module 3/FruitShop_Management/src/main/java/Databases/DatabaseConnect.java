@@ -1,17 +1,17 @@
-package databases;
+package Databases;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnect {
-    private static final String URL = "jdbc:mysql://localhost:3306/library?userSSL = false";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "kjfhjhh12345";
+    private final String URL = "jdbc:mysql://localhost:3306/fruitstore?userSSL = false";
+    private final String USERNAME = "root";
+    private final String PASSWORD = "kjfhjhh12345";
 
     public DatabaseConnect(){}
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -21,10 +21,5 @@ public class DatabaseConnect {
             System.out.println(e.getMessage());
         }
         return conn;
-    }
-
-    public static void main(String[] args) {
-        DatabaseConnect db = new DatabaseConnect();
-        System.out.println(db.getConnection());
     }
 }
