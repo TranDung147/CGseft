@@ -3,6 +3,29 @@
 
 <jsp:include page="../includes/navbar.jsp"/>
 
+<style>
+    .pagination a {
+        color: #000; /* Text color */
+        padding: 10px 15px; /* Spacing */
+        margin: 0 5px; /* Space between each page link */
+        border: 1px solid #ccc; /* Border styling */
+        text-decoration: none;
+        border-radius: 4px; /* Rounded corners */
+        display: inline-block;
+    }
+
+    .pagination a.active {
+        background-color: #28a745; /* Green background for active page */
+        color: white; /* White text for active page */
+        border: 1px solid #28a745; /* Match border with background */
+    }
+
+    .pagination a:hover {
+        background-color: #f1f1f1; /* Lighter background on hover */
+        border: 1px solid #ccc;
+    }
+
+</style>
 <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
@@ -13,10 +36,10 @@
                     <h1 class="page-header-title">Products <span
                             class="badge badge-soft-dark ml-2">${totalProducts}</span></h1>
                 </div>
-                    <div class="col-sm-auto">
-                        <a class="btn btn-primary"
-                           href="${pageContext.request.contextPath}/views/admin/product/add-product.jsp">Add Product</a>
-                    </div>
+                <div class="col-sm-auto">
+                    <a class="btn btn-primary"
+                       href="${pageContext.request.contextPath}/views/admin/product/add-product.jsp">Add Product</a>
+                </div>
             </div>
             <!-- End Row -->
 
@@ -120,7 +143,19 @@
                     </c:forEach>
                     </tbody>
                 </table>
+                <div class="col-12">
+                    <div class="pagination d-flex justify-content-center mt-5">
+                        <c:if test="${curPage > 1}"><a href="/Admin?action=list&page=${curPage - 1}" class="rounded">&laquo;</a></c:if>
+
+                        <c:forEach var="i" begin="1" end="${maxPage}">
+                            <a href="/Admin?action=list&page=${i}"
+                               class="<c:if test="${curPage == i}">active</c:if> rounded">${i}</a>
+                        </c:forEach>
+                        <c:if test="${curPage < maxPage}"><a href="/Admin?action=list&page=${curPage + 1}" class="rounded">&raquo;</a></c:if>
+                    </div>
+                </div>
             </div>
+
             <!-- End Table -->
 
 
@@ -130,4 +165,5 @@
     <!-- End Content -->
 
     <jsp:include page="../includes/footer.jsp"/>
+
 </main>

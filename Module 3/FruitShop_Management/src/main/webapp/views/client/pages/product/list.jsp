@@ -26,32 +26,42 @@
             <div class="col-lg-12">
                 <div class="row g-3">
 
-                        <div class="row g-4 justify-content-center">
-                            <c:forEach var="p" items="${result}">
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="rounded position-relative fruite-item">
-                                        <a href="${pageContext.request.contextPath}/ProductDetail?id=${p.productID}">
-                                            <img src="${pageContext.request.contextPath}/views/client${p.imageURL}"
-                                                 class="img-fluid w-100 rounded-top" alt="">
-                                        </a>
+                    <div class="row g-4 justify-content-center">
+                        <c:forEach var="p" items="${result}">
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="rounded position-relative fruite-item">
+                                    <a href="${pageContext.request.contextPath}/ProductDetail?id=${p.productID}">
+                                        <img src="${pageContext.request.contextPath}/views/client${p.imageURL}"
+                                             class="img-fluid w-100 rounded-top" alt="">
+                                    </a>
 
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>${p.fullName}</h4>
-                                            <p class="limited-text">${p.description}</p>
-                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                <% String priceRange = request.getParameter("priceRange"); %>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4>${p.fullName}</h4>
+                                        <p class="limited-text">${p.description}</p>
+                                        <div class="d-flex justify-content-between flex-lg-wrap">
+                                            <% String priceRange = request.getParameter("priceRange"); %>
 
-                                                <p class="text-dark fs-5 fw-bold mb-0">$ ${p.price} / kg</p>
-                                                <a href="${pageContext.request.contextPath}/ProductDetail?id=${p.productID}"
-                                                   class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Buy </a>
-                                            </div>
+                                            <p class="text-dark fs-5 fw-bold mb-0">$ ${p.price} / kg</p>
+                                            <a href="${pageContext.request.contextPath}/ProductDetail?id=${p.productID}"
+                                               class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                    class="fa fa-shopping-bag me-2 text-primary"></i> Buy </a>
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>
-                        </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                    <div class="col-12">
+                        <div class="pagination d-flex justify-content-center mt-5">
+                            <c:if test="${curPage > 1}"><a href="/Shop?page=${curPage - 1}" class="rounded">&laquo;</a></c:if>
 
+                            <c:forEach var="i" begin="1" end="${maxPage}">
+                                <a href="/Shop?page=${i}"
+                                   class="<c:if test="${curPage == i}">active</c:if> rounded">${i}</a>
+                            </c:forEach>
+                            <c:if test="${curPage < maxPage}"><a href="/Shop?page=${curPage + 1}" class="rounded">&raquo;</a></c:if>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

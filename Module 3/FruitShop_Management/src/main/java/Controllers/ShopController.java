@@ -2,6 +2,7 @@ package Controllers;
 
 import Entity.Product;
 import Models.ProductModel;
+import Services.ShopService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,9 +20,10 @@ public class ShopController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductModel productModel = new ProductModel();
-        List<Product> features = productModel.getAllProducts();
+        List<Product> features = new ShopService().paging(request, response);
+        request.setAttribute("maxPage", new ShopService().maxPage());
         request.setAttribute("result", features);
+        request.setAttribute("curPage", new ShopService().getCurPage(request, response));
         request.getRequestDispatcher("/views/client/pages/product/list.jsp").forward(request, response);
     }
 }

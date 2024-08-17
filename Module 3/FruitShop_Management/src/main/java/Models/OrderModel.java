@@ -40,6 +40,11 @@ public class OrderModel extends DatabaseConnect {
             ps.setInt(3, o.getQuantity()); // Replace with actual quantity
             ps.setString(4, o.getOrderStatus()); // Replace with actual order status
             ps.execute();
+            query = "UPDATE Product SET Quantity = Quantity - ? WHERE ProductID = ?;";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, o.getQuantity()); // Replace with actual quantity
+            ps.setInt(2, o.getProductID()); // Replace with actual product ID
+            ps.execute();
             con.close();
             ps.close();
         } catch (Exception e) {
@@ -78,12 +83,19 @@ public class OrderModel extends DatabaseConnect {
 
     public void deleteOderByUserIDAndProductID(int userID, int productID) {
         try {
+            int currentQuantity = getOrderByUserIDAndProductID(userID, productID).getQuantity();
             Connection con = getConnection();
             String query = "DELETE FROM `order` WHERE UserID =? AND ProductID =?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, userID);
             ps.setInt(2, productID);
             ps.executeUpdate();
+
+            query = "UPDATE Product SET Quantity = Quantity + ? WHERE ProductID = ?;";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, currentQuantity); // Replace with actual quantity
+            ps.setInt(2, productID); // Replace with actual product ID
+            ps.execute();
             con.close();
             ps.close();
         } catch (Exception e) {
@@ -92,16 +104,25 @@ public class OrderModel extends DatabaseConnect {
     }
 
     public void updateOrderQuantityByUserIDAndProductID(int quantity, int userID, int productID) {
-        String sql = "update `order` \n" +
-                "set Quantity = ? where UserID = ? and ProductID = ? ";
-
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
+        try {
+            int currentQuantity = getOrderByUserIDAndProductID(userID, productID).getQuantity();
+            Connection conn = getConnection();
+            String sql = "update `order` \n" +
+                    "\tset Quantity = ? where UserID = ? and ProductID = ?;";
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, quantity);
             stmt.setInt(2, userID);
             stmt.setInt(3, productID);
             stmt.execute();
+
+            sql = "UPDATE Product SET Quantity = Quantity - ? + ? WHERE ProductID = ?;";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, quantity); // Replace with actual quantity
+            stmt.setInt(2, currentQuantity); // Replace with actual product ID
+            stmt.setInt(3, productID);
+            stmt.execute();
+            conn.close();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
             // Xử lý ngoại lệ tùy theo yêu cầu của ứng dụng
@@ -124,15 +145,13 @@ public class OrderModel extends DatabaseConnect {
         }
         return price; // Trả về 0 nếu không tìm thấy sản phẩm
     }
+
     public double getTotalCostByUserID(int userID) {
         List<Order> orderList = getOrderByUserID(userID);
         double totalCost = 0;
         for (Order order : orderList) {
             totalCost += order.getQuantity() * getProductPrice(order.getProductID());
         }
-        return totalCost;
+        return Math.round(totalCost * 100.0) / 100.0;
     }
-
-
-
 }

@@ -3,6 +3,7 @@ package Controllers;
 import Entity.Product;
 import Models.ProductModel;
 import Services.AdminService;
+import Services.ShopService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,8 +23,10 @@ public class AdminController extends HttpServlet {
         AdminService adminService = new AdminService();
         switch (action) {
             case "list":
-                List<Product> products = productModel.getAllProducts();
+                List<Product> products = new AdminService().paging(request, response);
+                request.setAttribute("maxPage", new ShopService().maxPage());
                 request.setAttribute("products", products);
+                request.setAttribute("curPage", new ShopService().getCurPage(request, response));
                 request.getRequestDispatcher("/views/admin/product/list-product.jsp").forward(request, response);
                 break;
             case "edit":

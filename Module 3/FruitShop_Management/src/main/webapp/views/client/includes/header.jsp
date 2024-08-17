@@ -158,11 +158,11 @@
                                     class="fas fa-user fa-1x"></i>${sessionScope.account.username}</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                 <c:if test="${sessionScope.account.role == 'admin'}">
-                                    <a href="${pageContext.request.contextPath}/AdminServlet" class="dropdown-item">
+                                    <a href="${pageContext.request.contextPath}/Admin?action=list" class="dropdown-item">
                                         <i class="fa fa-lock fa-1x"></i>Admin
                                     </a>
                                 </c:if>
-                                <a href="UserServlet?action=detail" class="dropdown-item">
+                                <a href="UserProfile" class="dropdown-item">
                                     <i class="fa fa-user-circle fa-1x"></i>Account
                                 </a>
                                 <a href="${pageContext.request.contextPath}/Logout" class="dropdown-item">

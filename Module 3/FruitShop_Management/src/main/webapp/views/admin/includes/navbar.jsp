@@ -38,7 +38,6 @@
         <!-- CSS Front Template -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/views/admin/assets/css/theme.min.css?v=1.0" />
 
-
     </head>
 
     <body class="footer-offset">
@@ -279,10 +278,10 @@
                     <div class="navbar-brand-wrapper">
                         <!-- Logo -->
 
-                        <a class="navbar-brand" href="index.html" aria-label="Front">
+                        <a class="navbar-brand" href="index.html" aria-label="FruitShop">
                             <img
                                 class="navbar-brand-logo"
-                                src="${pageContext.request.contextPath}/views/admin/assets\svg\logos\logo.svg"
+                                src="${pageContext.request.contextPath}/storage/images/FruitShop.png"
                                 alt="Logo"
                                 />
                         </a>
@@ -307,15 +306,15 @@
                         <div class="navbar-brand-wrapper justify-content-between">
                             <!-- Logo -->
 
-                            <a class="navbar-brand" href="index.html" aria-label="Front">
+                            <a class="navbar-brand" href="${pageContext.request.contextPath}/Shop" aria-label="FruitShop">
                                 <img
                                     class="navbar-brand-logo"
-                                    src="${pageContext.request.contextPath}/views/admin/assets\svg\logos\logo.svg"
+                                    src="${pageContext.request.contextPath}/storage/images/FruitShop.png"
                                     alt="Logo"
                                     />
                                 <img
                                     class="navbar-brand-logo-mini"
-                                    src="${pageContext.request.contextPath}/views/admin/assets\svg\logos\logo-short.svg"
+                                    src="${pageContext.request.contextPath}/storage/images/FruitShop.png"
                                     alt="Logo"
                                     />
                             </a>

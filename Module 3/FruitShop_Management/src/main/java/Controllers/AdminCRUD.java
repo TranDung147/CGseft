@@ -22,7 +22,6 @@ public class AdminCRUD extends HttpServlet {
             case "update":
                 System.out.println(1);
                 adminService.updateProduct(request, response);
-
                 break;
             default:
                 throw new ServletException("Invalid action");
