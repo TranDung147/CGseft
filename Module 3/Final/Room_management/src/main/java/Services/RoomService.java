@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -27,8 +28,16 @@ public class RoomService {
     }
 
     public void deleteRoom(HttpServletRequest request, HttpServletResponse response) throws ParseException, IOException {
-        int roomId = Integer.parseInt(request.getParameter("id"));
-        new RoomModel().deleteRoomById(roomId);
-        response.sendRedirect(request.getContextPath() + "/Room");
+        String[] roomIds = request.getParameterValues("roomId");
+        RoomModel model = new RoomModel();
+        if (roomIds != null && roomIds.length > 0) {
+            for (String id : roomIds) {
+                model.deleteRoomById(Integer.parseInt(id));
+            }
+            response.sendRedirect("/Room");
+        } else {
+            // Trường hợp không có bản ghi nào được chọn
+            response.sendRedirect("/Room");
+        }
     }
 }
