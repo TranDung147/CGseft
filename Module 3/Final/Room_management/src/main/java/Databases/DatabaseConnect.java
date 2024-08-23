@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnect {
-    private final String URL = "jdbc:mysql://localhost:3306/fruitstore?userSSL = false";
+    private final String URL = "jdbc:mysql://localhost:3306/Room_management?userSSL = false";
     private final String USERNAME = "root";
     private final String PASSWORD = "kjfhjhh12345";
 
@@ -21,10 +21,5 @@ public class DatabaseConnect {
             System.out.println(e.getMessage());
         }
         return conn;
-    }
-
-    public static void main(String[] args) {
-        DatabaseConnect databaseConnect = new DatabaseConnect();
-        System.out.println(databaseConnect.getConnection());
     }
 }
