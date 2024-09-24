@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/users/add}">User Add</a>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+    </tr>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td><a onclick="return confirm('Are you sure?')" th:href="@{/users/{id}/delete(id=${user.id})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
