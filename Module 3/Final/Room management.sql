@@ -34,7 +34,7 @@ VALUES ('Nguyễn Văn C', '0123344556', '2023-10-01', 3, 'Phòng có điều h�
 select * from PaymentMethod;
 select * from Room;
 -- Lấy tất cả các phòng---------------------------------------------------
-SELECT r.id, r.tenant_name, r.phone_number, r.start_date, r.payment_method_id, p.name, r.notes FROM Room r JOIN PaymentMethod p ON r.payment_method_id = p.id;
+SELECT r.id, r.tenant_name, r.phone_number, r.start_date, r.payment_method_id, p.name, r.notes FROM Room r INNER JOIN PaymentMethod p ON r.payment_method_id = p.id Order by r.id;
 -- Xóa một phòng theo ID
 
 DELETE FROM Room WHERE id = 1;
