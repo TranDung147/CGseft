@@ -1,0 +1,21 @@
+/*
+    -selector:
+    + id -> #nameID{} (uu tien cao nhat)
+    + class -> .classname{}
+    + tag -> tagName{}
+*/
+#title {
+    color: aqua;
+}
+
+.text-blue {
+    color: blue;
+}
+
+p {
+    color: red;
+}
+
+h2 {
+    color: green !important;
+}

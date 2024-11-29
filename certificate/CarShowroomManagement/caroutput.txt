@@ -1,0 +1,9 @@
+brand=Hyundai; name=Elantra 1.8 AT; color=silver; id=C02; madeyear=2015; price=398; seat=5; quantity=2
+brand=Kia; name=Cerato 2.0 AT; color=white; id=C03; madeyear=2014; price=488; seat=5; quantity=2
+brand=Kia; name=Cerato 2.0 AT; color=red; id=C04; madeyear=2020; price=548; seat=5; quantity=2
+brand=Vinfast; name=Fadil 1.4 AT plus; color=red; id=C05; madeyear=2020; price=338; seat=5; quantity=2
+brand=Vinfast; name=VF9; color=silver; id=C06; madeyear=2022; price=1491; seat=7; quantity=2
+brand=Mercedes; name=C200 Avantgarde; color=white; id=C07; madeyear=2023; price=1599; seat=7; quantity=2
+brand=Mercedes; name=GLE 450 4MATIC V1; color=white; id=C08; madeyear=2023; price=4599; seat=7; quantity=2
+brand=Porsche; name=Macan GTS 233445; color=green; id=C09; madeyear=2023; price=6259; seat=7; quantity=2
+brand=Porsche; name=Cayenne S Coupé 243295; color=grey; id=C10; madeyear=2023; price=6259; seat=7; quantity=2

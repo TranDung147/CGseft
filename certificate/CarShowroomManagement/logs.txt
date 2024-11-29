@@ -1,0 +1,2 @@
+Customers: 001 had bought 2 Hyundai ID: C01 || Total price: 2376MIL || Time: 2023-11-04T02:03:02.148160500
+Revenue: 2376 MIL

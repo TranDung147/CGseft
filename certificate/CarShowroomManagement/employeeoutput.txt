@@ -1,0 +1,3 @@
+ID=E02; name=Ha Anh Tuan; dob=08/08/1998; address=Da Nang; cccd=127893; phone=0125364389; salary=5500; carsold=2
+ID=E03; name=Hien Ho; dob=21/03/1993; address=Da Nang; cccd=463729; phone=0473819387; salary=6500; carsold=1
+ID=E01; name=Hoang Trong Quang; dob=21/06/2004; address=Quangtri; cccd=123456; phone=123456; salary=90000; carsold=2

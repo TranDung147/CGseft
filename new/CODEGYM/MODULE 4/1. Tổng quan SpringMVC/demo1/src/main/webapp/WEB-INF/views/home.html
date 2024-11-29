@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/show-create-form}">Them moi hoc vien</a>
+<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>Ten</th>
+        <th>Email</th>
+        <th>Tuoi</th>
+    </tr>
+    <tr th:each="s,l : ${student}">
+        <td th:text="${l.count}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.email}"></td>
+        <td th:text="${s.age}"></td>
+
+    </tr>
+</table>
+</body>
+</html>
