@@ -30,14 +30,24 @@
 <div class="container mt-5">
     <h2 class="mb-4">Danh sách khuyến mãi</h2>
 
-    <!-- Thanh tìm kiếm và nút thêm -->
-    <div class="search-bar">
-        <a th:href="@{/showAddSalePage}" class="btn btn-primary">Thêm khuyến mãi</a>
-        <div class="input-group" style="width: 300px;">
-            <input type="text" class="form-control" placeholder="Tìm kiếm...">
-            <button class="btn btn-outline-secondary" type="button">🔍</button>
+    <form th:action="@{/}" method="get" class="row g-3 mb-3">
+        <div class="col-md-3">
+            <label for="discount" class="form-label">Mức giảm giá</label>
+            <input type="number" name="discount" id="discount" class="form-control" placeholder="Nhập mức giảm giá"
+                   th:value="${discount}">
         </div>
-    </div>
+        <div class="col-md-3">
+            <label for="beginDate" class="form-label">Thời gian bắt đầu</label>
+            <input type="date" name="beginDate" id="beginDate" class="form-control" th:value="${beginDate}">
+        </div>
+        <div class="col-md-3">
+            <label for="endDate" class="form-label">Thời gian kết thúc</label>
+            <input type="date" name="endDate" id="endDate" class="form-control" th:value="${endDate}">
+        </div>
+        <div class="col-md-3 align-self-end">
+            <button type="submit" class="btn btn-primary w-100">Tìm kiếm</button>
+        </div>
+    </form>
 
     <!-- Bảng khuyến mãi -->
     <table class="table table-bordered">
