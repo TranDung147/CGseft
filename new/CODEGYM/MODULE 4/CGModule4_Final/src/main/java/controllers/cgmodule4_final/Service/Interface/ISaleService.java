@@ -10,5 +10,7 @@ public interface ISaleService {
     void saveSale(Sale sale);
     Sale getSaleById(Integer id);
     void updateSale(Sale sale);
+    List<Sale> getAllSales();
+    List<Sale> searchSalesByConditions(Long discount, String beginDate, String endDate);
 
 }
