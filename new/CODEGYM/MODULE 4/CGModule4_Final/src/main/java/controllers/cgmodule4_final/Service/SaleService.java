@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -42,6 +43,18 @@ public class SaleService implements ISaleService {
 
     public void updateSale(Sale sale) {
         saleRepository.save(sale);
+    }
+
+    @Override
+    public List<Sale> getAllSales() {
+        return saleRepository.findAll();
+    }
+
+    public List<Sale> searchSalesByConditions(Long discount, String beginDate, String endDate) {
+        LocalDate start = (beginDate != null && !beginDate.isEmpty()) ? LocalDate.parse(beginDate) : null;
+        LocalDate end = (endDate != null && !endDate.isEmpty()) ? LocalDate.parse(endDate) : null;
+
+        return saleRepository.findByConditions(discount, start, end);
     }
 
 }
