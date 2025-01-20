@@ -19,11 +19,19 @@ public class SaleController {
     private ISaleService saleService;
 
     @GetMapping
-    public String getAllSales(Model model) {
+    public String listSales(
+            @RequestParam(value = "discount", required = false) Long discount,
+            @RequestParam(value = "beginDate", required = false) String beginDate,
+            @RequestParam(value = "endDate", required = false) String endDate,
+            Model model) {
 
-        List<Sale> sales = saleService.getAllSale();
+        List<Sale> sales = saleService.searchSalesByConditions(discount, beginDate, endDate);
         model.addAttribute("sales", sales);
-        return "salePage";
+        model.addAttribute("discount", discount);
+        model.addAttribute("beginDate", beginDate);
+        model.addAttribute("endDate", endDate);
+
+        return "salePage"; // Giao diện danh sách khuyến mãi
     }
 
     @PostMapping("delete/{id}")
