@@ -1,0 +1,1 @@
+SELECT * FROM cgm4final.sale;

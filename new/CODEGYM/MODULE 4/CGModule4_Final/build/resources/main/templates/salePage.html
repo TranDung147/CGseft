@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách khuyến mãi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        .table thead th {
+            background-color: #f8d7da;
+            color: #721c24;
+            text-align: center;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .btn-action {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        .btn-warning, .btn-danger {
+            width: 60px; /* Đặt chiều rộng cố định cho nút */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Danh sách khuyến mãi</h2>
+
+    <!-- Thanh tìm kiếm và nút thêm -->
+    <div class="search-bar">
+        <a th:href="@{/showAddSalePage}" class="btn btn-primary">Thêm khuyến mãi</a>
+        <div class="input-group" style="width: 300px;">
+            <input type="text" class="form-control" placeholder="Tìm kiếm...">
+            <button class="btn btn-outline-secondary" type="button">🔍</button>
+        </div>
+    </div>
+
+    <!-- Bảng khuyến mãi -->
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Thời gian bắt đầu</th>
+            <th>Thời gian kết thúc</th>
+            <th>Mức giảm giá</th>
+            <th>Chi Tiết</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sale : ${sales}">
+            <td th:text="${sale.titleName}"></td>
+            <td th:text="${sale.beginDate}"></td>
+            <td th:text="${sale.endDate}"></td>
+            <td th:text="${sale.discount}"></td>
+            <td th:text="${sale.description}"></td>
+            <td class="text-center">
+                <a th:href="@{/edit/{id}(id=${sale.saleId})}" class="btn btn-warning btn-sm">
+                    Sửa
+                </a>
+            </td>
+            <td>
+                <form th:action="@{/delete/{id}(id=${sale.saleId})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm"
+                            onclick="return confirm('Bạn có chắc chắn muốn xóa khuyến mãi này?');">
+                        Xóa
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
